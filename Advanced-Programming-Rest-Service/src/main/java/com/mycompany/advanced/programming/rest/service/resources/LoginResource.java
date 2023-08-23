@@ -2,11 +2,10 @@ package com.mycompany.advanced.programming.rest.service.resources;
 
 import DB.Login;
 import DB.LoginUtils;
+import DB.Token;
+import DB.TokenUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import db.DashboardResponse;
-import db.Token;
-import db.TokenUtils;
 
 import javax.servlet.http.HttpServletRequest; // Import the HttpServletRequest class
 import javax.servlet.http.HttpSession;
