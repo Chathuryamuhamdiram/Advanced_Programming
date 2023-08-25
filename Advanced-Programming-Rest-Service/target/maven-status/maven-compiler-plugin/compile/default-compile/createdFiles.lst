@@ -1,0 +1,14 @@
+com\mycompany\advanced\programming\rest\service\resources\LoginResource.class
+com\mycompany\advanced\programming\rest\service\resources\JavaEE8Resource.class
+DB\UserService.class
+DB\Token.class
+com\mycompany\advanced\programming\rest\service\resources\ConsultantsResource.class
+DB\Login.class
+com\mycompany\advanced\programming\rest\service\JAXRSConfiguration.class
+DB\LoginUtils.class
+DB\ValidateToken.class
+DB\TokenService.class
+com\mycompany\advanced\programming\rest\service\resources\ValidateTokenResource.class
+DB\TokenUtils.class
+com\mycompany\advanced\programming\rest\service\resources\BaseClass.class
+DB\Consultant.class

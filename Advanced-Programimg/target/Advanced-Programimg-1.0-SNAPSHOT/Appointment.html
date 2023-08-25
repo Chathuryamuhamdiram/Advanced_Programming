@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function saveDateTime() {
+    const datetime = document.getElementById("datetime").value;
+    const userId = new URLSearchParams(window.location.search).get('userid'); // Get user ID from query parameter
+    
+    const data = {
+        datetime: datetime,
+        userid: userId
+    };
+
+    fetch('http://localhost:8080/sessionhandling-rest-service/api/datemtimejobseeker', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+   .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Failed to save date and time.');
+        }
+    })
+    .then(result => {
+        document.getElementById("message").innerText = "Your date and time are saved.";
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById("message").innerText = "An error occurred while saving date and time.";
+    });
+}
+function goBack() {
+    history.back(); // Navigate back to the previous page
+}
+        </script>
+    </head>
+    <body>
+        <h2>Enter Date and Time</h2>
+       
+    <form id="datetimeForm">
+        <label for="datetime">Date and Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <button type="button" onclick="saveDateTime()">Save</button>
+    </form>
+<a href="#" onclick="goBack()">Back</a>
+    </body>
+</html>
+

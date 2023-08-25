@@ -13,10 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.http.HttpServlet;
 
-/**
- *
- * @author ashinka
- */
+
 public class LoginUtils extends HttpServlet  {
     static final String DB_URL = "jdbc:mysql://localhost:3306/the_jobs_appoinments?useSSL=false";
     static final String USER = "root";

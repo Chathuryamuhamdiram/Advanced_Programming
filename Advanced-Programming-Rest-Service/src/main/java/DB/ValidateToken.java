@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServlet;
 
 
+
 public class ValidateToken extends HttpServlet {
     
      static final String DB_URL = "jdbc:mysql://localhost:3306/the_jobs_appoinments?useSSL=false";
