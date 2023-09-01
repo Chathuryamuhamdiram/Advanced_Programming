@@ -4,10 +4,7 @@
  */
 package db;
 
-/**
- *
- * @author ashinka
- */
+
 public class Profile {
     
     private int id;

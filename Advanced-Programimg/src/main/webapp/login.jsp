@@ -1,11 +1,5 @@
-<%-- 
-    Document   : login
-    Created on : Aug 7, 2023, 5:09:01 PM
-    Author     : ashinka
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
