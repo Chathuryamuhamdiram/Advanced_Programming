@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Seeker Consultant Dashboard</title>
+  <!-- Add your CSS and JavaScript links here -->
+   <script>
         
         // Retrieve the token from local storage
         const token = localStorage.getItem('token');
@@ -41,6 +40,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             // Store the email and userid in variables for later use
             const userEmail = email;
             const userId = userid;
+
+            // Call other functions here and pass the userId and userEmail
+            // For example:
+            // myOtherFunction(userId, userEmail);
+            // anotherFunction(userId, userEmail);
             
             // Add an event listener to the logout button
 const logoutButton = document.getElementById('logoutButton');
@@ -48,6 +52,7 @@ logoutButton.addEventListener('click', () => {
     localStorage.removeItem('token'); // Clear the token from local storage
     window.location.href = 'login.jsp'; // Redirect to the login page
 });
+            
 })
             .catch(error => {
                 console.error('Error:', error);
@@ -61,40 +66,41 @@ logoutButton.addEventListener('click', () => {
            console.log('token  is not present'); 
         }
         
-        async function fetchConsultantsSchedule() {
-    try {
-        const response = await fetch('http://localhost:8080/sessionhandling-rest-service/api/consultants');
-        if (response.ok) {
-            const data = await response.json();
-            const tableBody = document.getElementById('consultantsTableBody');
+        function datetimeselctor() {
+            // Get the stored user ID from localStorage
+            const userId = localStorage.getItem('userid');
             
-            data.forEach(schedule => {
-                const row = document.createElement('tr');
-                const nameCell = document.createElement('td');
-                const datetimeCell = document.createElement('td');
-                
-                nameCell.textContent =  schedule.firstname;;
-                datetimeCell.textContent = schedule.datetime;
-                
-                row.appendChild(nameCell);
-                row.appendChild(datetimeCell);
-                tableBody.appendChild(row);
-            });
-        } else {
-            console.error('Error:', response.status);
+            // Construct the URL with the user ID as a query parameter
+            const url = `dateandtime.html?userid=${userId}`;
+            
+            // Redirect to the new URL
+            window.location.href = url;
         }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
-
-// Call the function to populate the table on page load
-fetchConsultantsSchedule();
+        function Appointment() {
+            // Get the stored user ID from localStorage
+            const userId = localStorage.getItem('userid');
+            
+            // Construct the URL with the user ID as a query parameter
+            const url = `ViewAppointment.html?userid=${userId}`;
+            
+            // Redirect to the new URL
+            window.location.href = url;
+        }
+         function updatedatetime() {
+            // Get the stored user ID from localStorage
+            const userId = localStorage.getItem('userid');
+            
+            // Construct the URL with the user ID as a query parameter
+            const url = `updatedatetime.html?userid=${userId}`;
+            
+            // Redirect to the new URL
+            window.location.href = url;
+        }
     </script>
-    </head>
-    <body>
-       <header>   
-    <img src="your-logo.png" alt="Company Logo">
+</head>
+<body>
+  <header>   
+   
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
@@ -109,7 +115,6 @@ fetchConsultantsSchedule();
     <section id="overview">  
       <h2>Dashboard Overview</h2>
       <div class="stats">
-        
         <div class="stat">
           <h3>New Applicants</h3>
           <p>50</p>
@@ -117,34 +122,38 @@ fetchConsultantsSchedule();
       </div>      
     </section>
     <section id="jobs">     
-      <h2>add admin and consultant</h2>
+      <h2>Date and time selection</h2>
       <ul class="job-list">
         <li>
-           <a href="adminconsultantregister.html">Date and time selection</a>
-        </li>
+            
+         <a href="#" onclick="datetimeselctor()">Date and time selection</a>
+          
+        </li></ul>
+      <h2>update Date and time </h2>
+<ul class="job-list">
+    <li>
+        <a href="#" onclick="updatedatetime()">Update Date and Time</a>
+        <!--<a href="updatedatetime.html">Update Date and Time</a>-->
+    </li>
+</ul>
+      <h2>View Appointment details</h2>
+      <ul class="job-list">
+        <li>
+             <a href="#" onclick="Appointment()">view Appointment</a>
         
-      </ul>
+          
+        </li></ul>
+            
      
     </section>
-   <section id="consultants">
-    <h2>ConsultantsSchedule</h2>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Date and Time</th>
-        </tr>
-        <tbody id="consultantsTableBody">
-            <!-- Data will be populated here dynamically -->
-        </tbody>
-    </table>
-</section>
+
   </main>
-<button id="logoutButton">Logout</button>
+    <button id="logoutButton">Logout</button>
+
   <footer>
    
     <p>&copy; 2023 Your Company. All rights reserved.</p>
     
   </footer>
 </body>
-    </body>
 </html>

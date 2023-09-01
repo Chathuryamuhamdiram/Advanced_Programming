@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <h2>Update Date and Time</h2>
+    <form id="updateDatetimeForm">
+        <label for="datetime">New Date and Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <button type="button" onclick="updateDateTime()">Update</button>
+    </form>
+    <div id="message"></div>
+<a href="#" onclick="goBack()">Back</a>
+    <script>
+        function updateDateTime() {
+            const newDatetime = document.getElementById("datetime").value;
+            const userId = new URLSearchParams(window.location.search).get('userid'); // Get user ID from query parameter
+            
+            if (!newDatetime) {
+                document.getElementById("message").innerText = "Please enter a valid date and time.";
+                return;
+            }
+
+            const data = {
+                datetime: newDatetime,
+                userid: userId
+            };
+
+            fetch('http://localhost:8080/Advanced-Programming-Rest-Service/api/updatedatetime', {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+               if (result.success) {
+                    document.getElementById("message").innerText = "Your date and time are updated successfully.";
+                } else {
+                    document.getElementById("message").innerText = "Error updating date and time. Please try again.";
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+        function goBack() {
+    history.back(); // Navigate back to the previous page
+}
+    </script>
+</body>
+</html>

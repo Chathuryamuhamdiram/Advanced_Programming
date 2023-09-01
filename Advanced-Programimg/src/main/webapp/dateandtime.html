@@ -7,53 +7,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <script>
             function saveDateTime() {
     const datetime = document.getElementById("datetime").value;
     const userId = new URLSearchParams(window.location.search).get('userid'); // Get user ID from query parameter
+    
+    if (!datetime) {
+                document.getElementById("message").innerText = "Please enter date and time properly.";
+                return;
+            }
     
     const data = {
         datetime: datetime,
         userid: userId
     };
 
-    fetch('http://localhost:8080/Advanced-Programming-Rest-Service/api/datemtimejobseeker', {
+    fetch('http://localhost:8080/Advanced-Programming-Rest-Service/api/datetime', {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json'
         },
         body: JSON.stringify(data)
     })
-   .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Failed to save date and time.');
-        }
-    })
+    .then(response => response.json())
     .then(result => {
-        document.getElementById("message").innerText = "Your date and time are saved.";
+        if (result.success) {
+                    document.getElementById("message").innerText = "Your date and time are saved.";
+                } else {
+                    document.getElementById("message").innerText = "Error when saving date and time.";
+                }
     })
     .catch(error => {
         console.error(error);
-        document.getElementById("message").innerText = "An error occurred while saving date and time.";
     });
 }
 function goBack() {
     history.back(); // Navigate back to the previous page
 }
+
         </script>
     </head>
     <body>
-        <h2>Enter Date and Time</h2>
-       
+        <h2>Select Date and Time</h2>
     <form id="datetimeForm">
         <label for="datetime">Date and Time:</label>
         <input type="datetime-local" id="datetime" name="datetime" required>
         <button type="button" onclick="saveDateTime()">Save</button>
     </form>
-<a href="#" onclick="goBack()">Back</a>
+    <div id="message"></div>
+
+   <a href="#" onclick="goBack()">Back</a>
     </body>
 </html>
-

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script>
+              const url = "http://localhost:8080Advanced-Programming-Rest-Service/api/viewappointment";
+             
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('#jobSeekerTable');
+                data.forEach(jobSeeker => {
+                    const row = tableBody.insertRow();
+                    row.insertCell(0).textContent = jobSeeker.userid;
+                    row.insertCell(1).textContent = jobSeeker.firstname;
+                    row.insertCell(2).textContent = jobSeeker.datetime;
+                   
+                    const detailsCell = row.insertCell(3);
+    const detailsLink = document.createElement('a');
+    detailsLink.textContent = 'View Details';
+    detailsLink.href = `View Details.html?userid=${jobSeeker.userid}`; // Pass the userid as a parameter
+    detailsCell.appendChild(detailsLink);
+    
+    const deleteCell = row.insertCell(4);
+        const deleteLink = document.createElement('a');
+        deleteLink.textContent = 'Delete';
+        deleteLink.href = '#'; // Use "#" for now, you'll update this in JavaScript
+        deleteLink.addEventListener('click', () => deleteJobSeeker(jobSeeker.userid)); // Add event listener
+        deleteCell.appendChild(deleteLink);
+                   
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+            
+            function deleteJobSeeker(userid) {
+    const url = `http://localhost:8080/sessionhandling-rest-service/api/viewappointment/${userid}`;
+    
+    fetch(url, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            location.reload(); // Reload the page to reflect changes
+        } else {
+            console.error('Error:', response.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+function goBack() {
+    history.back(); // Navigate back to the previous page
+}
+    </script>
+    </head>
+    <body>
+       <h2>Job Seeker Information</h2>
+       <a href="#" onclick="goBack()">Back</a>
+    <table id="jobSeekerTable">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Date and time</th>
+                <th>Details</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    </table>
+
+    </body>
+</html>
