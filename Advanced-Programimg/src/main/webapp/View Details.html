@@ -29,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
      <script>
          const urlParams = new URLSearchParams(window.location.search);
          const userid = urlParams.get('userid');
-        const url = `http://localhost:8080/sessionhandling-rest-service/resources/profile/${userid}`;
+        const url = `http://localhost:8080/Advanced-Programming-Rest-Service/resources/profile/${userid}`;
 
         fetch(url )
             .then(response => response.json())

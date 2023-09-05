@@ -63,7 +63,7 @@ logoutButton.addEventListener('click', () => {
         
         async function fetchConsultantsSchedule() {
     try {
-        const response = await fetch('http://localhost:8080/sessionhandling-rest-service/resources/consultants');
+        const response = await fetch('http://localhost:8080/Advanced-Programming-Rest-Service/resources/consultants');
         if (response.ok) {
             const data = await response.json();
             const tableBody = document.getElementById('consultantsTableBody');

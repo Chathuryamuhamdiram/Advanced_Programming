@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.advanced.programming.rest.service.resources;
-import DB.Token;
-import DB.ValidateToken;
+import dbp.Token;
+import dbp.ValidateToken;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.annotation.PostConstruct;

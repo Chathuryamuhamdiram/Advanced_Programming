@@ -4,10 +4,10 @@
  */
 package com.mycompany.advanced.programming.rest.service.resources;
 
-import DB.ProfileUtils;
+import dbp.ProfileUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import db.Profile;
+import dbp.Profile;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;

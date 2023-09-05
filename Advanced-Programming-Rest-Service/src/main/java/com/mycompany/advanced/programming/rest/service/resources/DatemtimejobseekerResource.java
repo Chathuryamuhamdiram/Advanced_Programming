@@ -6,8 +6,8 @@ package com.mycompany.advanced.programming.rest.service.resources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import DB.JobSeekerDateTimeUtils;
-import DB.datetime;
+import dbp.JobSeekerDateTimeUtils;
+import dbp.datetime;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;
 import javax.enterprise.context.RequestScoped;
@@ -15,11 +15,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-/**
- * REST Web Service
- *
- * @author ashinka
- */
 @Path("datemtimejobseeker")
 @RequestScoped
 public class DatemtimejobseekerResource {

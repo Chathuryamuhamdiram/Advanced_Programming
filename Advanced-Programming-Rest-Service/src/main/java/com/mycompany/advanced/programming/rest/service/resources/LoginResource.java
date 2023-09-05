@@ -1,9 +1,9 @@
 package com.mycompany.advanced.programming.rest.service.resources;
 
-import DB.Login;
-import DB.LoginUtils;
-import DB.Token;
-import DB.TokenUtils;
+import dbp.Login;
+import dbp.LoginUtils;
+import dbp.Token;
+import dbp.TokenUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

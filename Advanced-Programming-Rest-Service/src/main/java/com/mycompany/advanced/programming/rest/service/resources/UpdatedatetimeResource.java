@@ -6,8 +6,8 @@ package com.mycompany.advanced.programming.rest.service.resources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import DB.DateTimeUtils;
-import DB.datetime;
+import dbp.DateTimeUtils;
+import dbp.datetime;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;

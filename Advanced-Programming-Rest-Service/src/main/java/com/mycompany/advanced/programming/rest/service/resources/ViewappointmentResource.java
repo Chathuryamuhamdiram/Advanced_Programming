@@ -6,8 +6,8 @@ package com.mycompany.advanced.programming.rest.service.resources;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import DB.JobSeeker;
-import DB.ViewAppointmentUtils;
+import dbp.JobSeeker;
+import dbp.ViewAppointmentUtils;
 import java.util.List;
 
 
