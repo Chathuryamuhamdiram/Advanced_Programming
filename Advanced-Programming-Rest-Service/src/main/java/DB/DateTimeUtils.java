@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DateTimeUtils extends HttpServlet{
     
-    static final String DB_URL = "jdbc:mysql://localhost:3306/appointmentscheduling?useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/the_jobs_appoinments?useSSL=false";
     static final String USER = "root";
     static final String PASS = "#jayan1998#";
     

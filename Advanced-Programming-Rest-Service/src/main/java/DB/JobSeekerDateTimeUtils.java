@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JobSeekerDateTimeUtils {
-     static final String DB_URL = "jdbc:mysql://localhost:3306/appointmentscheduling?useSSL=false";
+     static final String DB_URL = "jdbc:mysql://localhost:3306/the_jobs_appoinments?useSSL=false";
     static final String USER = "root";
     static final String PASS = "#jayan1998#";
     

@@ -8,8 +8,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    height:400px;
+    width: 400px; /* Set the width of the container as desired */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Align text within the container to the left */
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+        </style>
           <script> 
-              const url = "http://localhost:8080/Advanced-Programming-Rest-Service/api/register/";
+              const url = "http://localhost:8080/Advanced-Programming-Rest-Service/resources/register/";
        
     function addUser(){
             const email = document.getElementById("email").value;
@@ -69,6 +129,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </script>
     </head>
     <body>
+        <div class="container">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstname" name="firstname" required><br>
 
@@ -89,6 +150,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
         <button id='btnRegister' onclick='addUser()'>Add User</button>
         <a href="#" onclick="goBack()">Back</a>
+        </div>
     </body>
 </html>
 

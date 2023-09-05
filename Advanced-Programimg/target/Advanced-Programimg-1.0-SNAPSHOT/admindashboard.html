@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
         if (token) {
             // Send a request to validate the token and get user email
-            fetch('http://localhost:8080/Advanced-Programming-Rest-Service/api/validateToken', {
+            fetch('http://localhost:8080/Advanced-Programming-Rest-Service/resources/validateToken', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ logoutButton.addEventListener('click', () => {
         
         async function fetchConsultantsSchedule() {
     try {
-        const response = await fetch('http://localhost:8080/sessionhandling-rest-service/api/consultants');
+        const response = await fetch('http://localhost:8080/sessionhandling-rest-service/resources/consultants');
         if (response.ok) {
             const data = await response.json();
             const tableBody = document.getElementById('consultantsTableBody');

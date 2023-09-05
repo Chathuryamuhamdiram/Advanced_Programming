@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    </head>
+    <body>
+        <h1>Profiles List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Job</th>
+            <th>Education</th>
+        </tr>
+    </table>
+        <a href="#" onclick="goBack()">Back</a>
+     <script>
+         const urlParams = new URLSearchParams(window.location.search);
+         const userid = urlParams.get('userid');
+        const url = `http://localhost:8080/sessionhandling-rest-service/resources/profile/${userid}`;
+
+        fetch(url )
+            .then(response => response.json())
+            .then(data => {
+                const table = document.querySelector("table");
+                data.forEach(profile => {
+                    const row = table.insertRow();
+                    row.insertCell().textContent = profile.id;
+                    row.insertCell().textContent = profile.firstname;
+                    row.insertCell().textContent = profile.lastname;
+                    row.insertCell().textContent = profile.dob;
+                    row.insertCell().textContent = profile.address;
+                    row.insertCell().textContent = profile.email;
+                    row.insertCell().textContent = profile.phonenumber;
+                    row.insertCell().textContent = profile.job;
+                    row.insertCell().textContent = profile.education;
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+            
+            function goBack() {
+    history.back(); // Navigate back to the previous page
+}
+            
+    </script>
+    </body>
+</html>

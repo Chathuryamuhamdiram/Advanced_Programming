@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script> 
+            
+              const url = "http://localhost:8080/sessionhandling-rest-service/api/profile/";
+      
+    function addProfile(){
+                
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const dob = document.getElementById("dob").value;
+            const address = document.getElementById("address").value;
+            const email = document.getElementById("email").value;  
+            const phonenumber = document.getElementById("phonenumber").value;
+            const job = document.getElementById("job").value;
+            const education = document.getElementById("education").value; 
+            const userId = new URLSearchParams(window.location.search).get('userid');
+            
+            if (!firstname || !lastname || !dob || !address || !email || !phonenumber || !job || !education) {
+    document.getElementById("message").innerText = "Please fill in all fields.";
+    return;
+}
+
+            const userData = { 
+                "firstname": firstname,
+                "lastname": lastname,
+                "dob": dob,
+                "address": address,
+                "email": email,
+                "phonenumber": phonenumber,                
+                "job": job,
+                "education": education,  
+               "userid": userId
+            };
+
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userData)
+            };
+
+            fetch(url, options)
+                .then(response => {
+                    if (response.ok) {
+                         document.getElementById("message").innerText = "Data inserted successfully!";
+                        return response.json();
+                    } else {
+                        throw new Error("Registration failed. Please check your details.");
+                    }
+                })
+                .then(data => {
+                    // Handle the successful registration here, e.g., show a success message
+                    console.log("Registration successful!", data);
+                })
+                .catch(error => {
+                    // Handle errors, e.g., display an error message on the registration form
+                    console.error(error);
+                });
+          
+            }
+            
+            function goBack() {
+    history.back(); // Navigate back to the previous page
+}
+    </script>
+    </head>
+    <body>
+           <label for="firstName">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+        
+        <label for="email">Address</label>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phonenumber">Phone Number:</label>
+        <input type="text" id="phonenumber" name="phonenumber" required><br>
+        
+         <label for="job">Job Preferences:</label>
+         <textarea id="job" name="job" rows="4" cols="50" required></textarea><br>
+         
+        <label for="education">Education</label>
+       <textarea id="education" name="education" rows="4" cols="50" required></textarea><br>
+              
+       
+       
+         <button id='btnPRegister' onclick='addProfile()'>Add Profile</button>
+         
+         <a href="#" onclick="goBack()">Back</a>
+    </body>
+</html>

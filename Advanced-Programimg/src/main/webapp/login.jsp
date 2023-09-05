@@ -15,7 +15,7 @@
             };
 
            
-            fetch('http://localhost:8080/Advanced-Programming-Rest-Service/api/login/', {
+            fetch('http://localhost:8080/Advanced-Programming-Rest-Service/resources/login/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
