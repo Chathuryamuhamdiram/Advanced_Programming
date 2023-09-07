@@ -73,8 +73,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     history.back(); // Navigate back to the previous page
 }
     </script>
+     <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    text-align: center;
+    padding: 100px;
+    background-color: #fff;
+    border-radius: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    max-height: 700px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  form {
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+</style>
     </head>
     <body>
+        <div class="container">
+             <h2>Add profile</h2>
+             <form id="RegisterForm">
            <label for="firstName">First Name:</label>
         <input type="text" id="firstname" name="firstname" required><br>
 
@@ -104,5 +164,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
          <button id='btnPRegister' onclick='addProfile()'>Add Profile</button>
          
          <a href="#" onclick="goBack()">Back</a>
+         </form>
+         </div>
     </body>
 </html>
