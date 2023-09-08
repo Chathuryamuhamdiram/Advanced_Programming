@@ -4,92 +4,68 @@
 <html>
 <head>
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    text-align: center;
+        /* Reset default margin and padding for the entire page */
+body, h2, form {
     margin: 0;
     padding: 0;
 }
 
+/* Apply gray background to the entire body */
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure the body covers the entire viewport height */
+    background-color: #f0f0f0; /* Gray background color */
+    font-family: Arial, sans-serif; /* Specify a font family */
+}
+
+/* Create a container for the login form and center it on the page */
+.container {
+    width: 100%; /* Make the container fill the available width */
+    max-width: 400px; /* Set a maximum width for the container */
+    background-color: #fff; /* Light blue background color */
+    border-radius: 5px; /* Rounded corners for the container */
+    padding: 20px; /* Add some padding to the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+}
+
+/* Style the h2 header */
 h2 {
-    color: #333;
+    text-align: center; /* Center the text */
+    color: #333; /* Dark gray text color */
 }
 
-#loginForm {
-    background-color: #fff;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Style form elements */
+form label {
+    display: block; /* Display labels as blocks */
+    margin-bottom: 5px; /* Add space below labels */
+    color: #333; /* Dark gray text color */
 }
 
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+form input[type="text"],
+form input[type="password"] {
+    width: 90%; /* Make inputs fill the container */
+    padding: 10px; /* Add padding to inputs */
+    margin-bottom: 10px; /* Add space between inputs */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 3px; /* Rounded corners for inputs */
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    width: 95%; /* Make the button fill the container */
+    padding: 10px; /* Add padding to the button */
+    background-color: #2196F3; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    border-radius: 3px; /* Rounded corners for the button */
+    cursor: pointer; /* Add a pointer cursor on hover */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0e7ac4; /* Darker blue on hover */
 }
 
-#message {
-    color: #d9534f;
-    font-weight: bold;
-    margin-top: 10px;
-}
-  nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 auto;
-      max-width: 1200px;
-      padding: 0 20px;
-    }
-
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    nav ul li {
-      margin-right: 20px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #007bff;
-    }
 
     </style>
     <title>Login Page</title>
@@ -143,6 +119,7 @@ button:hover {
     </script>
 </head>
 <body>
+    <div class="container">
     <h2>Login</h2>
     <form id="loginForm">
         <label for="email">Email</label>
@@ -152,5 +129,6 @@ button:hover {
         <button type="button" onclick="login()">Login</button>
     </form>
     <div id="message"></div>
+    </div>
 </body>
 </html>
