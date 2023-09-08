@@ -106,7 +106,7 @@ logoutButton.addEventListener('click', () => {
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
+            background-color: lightskyblue;
             position: relative; /* Allows absolute positioning within the body */
         }
 
@@ -124,25 +124,53 @@ logoutButton.addEventListener('click', () => {
             margin-left: 20px;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+        nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    .auth-buttons a {
+      margin-left: 20px;
+      padding: 8px 20px;
+      border: 1px solid white;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #007bff;
+    }
 
         main {
-            padding: 20px;
+            padding: 40px;
         }
 
         section {
@@ -232,7 +260,7 @@ logoutButton.addEventListener('click', () => {
    <h3>The Jobs</h3>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="Home.html">Home</a></li>
         <li><a href="#">Jobs</a></li>
         <li><a href="#">Candidates</a></li>
         <li><a href="#">Reports</a></li>

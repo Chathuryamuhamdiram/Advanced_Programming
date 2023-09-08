@@ -77,7 +77,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: black;
+    background-color: lightskyblue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +86,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
   .container {
     text-align: center;
-    padding: 100px;
+    margin: 50px;
+    padding: 60px;
     background-color: #fff;
-    border-radius: 100px;
+    border-radius: 60px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     max-height: 700px;
+    top: 50%; /* Move the container down by 50% of its height */
+    left: 50%; /* Move the container right by 50% of its width */
+    
   }
 
   h2 {
@@ -124,6 +128,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 100px;
   }
 
   button:hover {
@@ -154,10 +159,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <input type="text" id="phonenumber" name="phonenumber" required><br>
         
          <label for="job">Job Preferences:</label>
-         <textarea id="job" name="job" rows="4" cols="50" required></textarea><br>
+         <textarea id="job" name="job" rows="4" cols="40" required></textarea><br>
          
         <label for="education">Education</label>
-       <textarea id="education" name="education" rows="4" cols="50" required></textarea><br>
+       <textarea id="education" name="education" rows="4" cols="40" required></textarea><br>
               
        
        
